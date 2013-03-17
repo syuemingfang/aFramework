@@ -1,0 +1,214 @@
+@import compass/css3
+body
+	background: url(../images/all_background4.png) repeat-x
+	line-height: 2
+	a
+		&:link
+			color: #339933
+			text-decoration: none
+		&:visited
+			color: #339933
+		&:hover
+			color: #cc3333
+		&:active
+			color: #339933
+	label
+		color: #55606c
+
+// Master 
+// Header
+.all_wrapHeader
+	min-height: 255px
+
+.all_wrapHeaderMenu
+	background: url(../images/all_background2.png) left no-repeat
+	width: 187px
+	height: 26px
+.all_wrapHeaderPhoto
+	margin: 0
+	div
+		background: url(../images/all_background.png) center no-repeat
+		min-height: 255px
+		position: absolute
+		z-index: 1
+
+.all_wrapHeaderWhite
+	background: #ffffff
+	top: 255px
+	height: 500px
+	position: absolute
+	z-index: 2
+	margin: 0
+.all_wrapMain
+	position: relative
+	z-index: 3
+// Side
+.all_groupSide
+	@include border-radius(10px)
+	color: #494f60
+	a
+		&:link
+			color: #494f60
+		&:visited
+			color: #494f60
+		&:hover
+			color: #494f60
+		&:active
+			color: #494f60
+.all_wrapLogin
+	margin-bottom: 10px
+	background: #f8f7f7
+	img
+		vertical-align: middle
+	h1
+		background: url(../images/all_title5_login.png) center no-repeat
+		min-height: 30px
+		line-height: 0
+		margin-bottom: 10px
+
+.all_wrapRead, .all_wrapBook
+	margin-bottom: 10px
+	@include background-image(linear-gradient(top, #ffffff, #f8f7f7))
+	_background: #fafafa
+	*background: #fafafa
+	&.all_wrapRead h1
+		background: url(../images/all_title3_read.png) left no-repeat
+		min-height: 40px
+		line-height: 0
+	&.all_wrapBook h1
+		background: url(../images/all_title3_book.png) left no-repeat
+		min-height: 40px
+		line-height: 0	
+	ul
+		li
+			padding-left: 30px
+			margin-bottom: 5px
+			background: url(../images/all_icon.png) 10px no-repeat
+			border-bottom: 1px #22a7cc dotted
+
+.all_wrapHotClass, .all_wrapAbout, .all_wrapLink
+	margin-bottom: 10px
+	@include background-image(linear-gradient(top, #ffffff, #f8f7f7))
+	_background: #fafafa
+	*background: #fafafa
+	h1
+		height: 40px
+	&.all_wrapHotClass h1
+		background: url(../images/all_title4_class.png) left no-repeat
+	&.all_wrapAbout h1
+		background: url(../images/all_title4_about.png) left no-repeat
+	&.all_wrapLink h1
+		background: url(../images/all_title4_link.png) left no-repeat
+	ul
+		li
+			padding-left: 30px
+			margin-bottom: 5px
+			background: url(../images/all_icon_2.png) 10px no-repeat
+			border-bottom: 1px #959595 dotted
+
+// List
+ul.all_listText
+	li:first-child
+		border-left: 0
+		padding-left: 4px
+		padding-right: 4px
+	li
+		font-size: 12px
+		display: inline
+		padding-left: 4px
+		padding-right: 4px
+		border-left: 1px #ccc solid
+
+// Footer
+.all_wrapFooterInfo
+	background: url(../images/all_background3.png) repeat-x
+	height: 25px
+	font-size: 82.5%
+	padding-top: 5px
+	overflow: hidden
+	ul
+		li
+			display: inline
+			padding-left: 30px
+			margin-bottom: 5px
+			background: url(../images/all_icon3.png) 10px no-repeat
+
+.all_wrapFooter
+	@include background-image(linear-gradient(bottom, #ffffff, #f8f7f7))
+	font-size: 82.5%
+	color: #626262
+	.right
+		img
+			margin-top: 30px
+
+// Index
+// Content
+.index_wrapMenu
+	background: url(../images/index_background.png) center no-repeat
+	min-height: 40px
+	line-height: 0
+	overflow: hidden
+	&:before
+		float: left
+		content: url(../images/index_background_before.png)
+	&:after
+		float: right
+		content: url(../images/index_background_after.png)
+	img
+		vertical-align: middle
+
+.index_wrapClass, .index_wrapNews
+	&.index_wrapNews .title
+		background: url(../images/all_title2_news.png) left no-repeat
+		min-height: 40px
+	&.index_wrapClass .title
+		background: url(../images/all_title2_class.png) left no-repeat
+		min-height: 40px
+
+
+
+ul.index_listBlock
+	li	
+		padding-left: 30px
+		margin-bottom: 5px
+		background: url(../images/all_icon2_2.png) 10px no-repeat
+		border-bottom: 1px #fafafa solid
+		text-overflow: ellipsis
+		time
+			font-size: 82.5%
+
+ul.index_listCourse
+	padding: 0
+	margin: 0
+	li
+		float: left
+		font-size: 82.5%
+		color: #ffffff
+		margin: 0
+		width: 14.28%
+		text-align: center
+		background-color: #565656
+		@include single-text-shadow(#888888, 0px, 0px, 3px)
+		@include border-top-left-radius(5px)
+		@include border-top-right-radius(5px)
+	.course1
+		@include background-image(linear-gradient(bottom, #0099e3, #0079d7))
+		background-color: #0079d7
+	.course2
+		@include background-image(linear-gradient(bottom, #ff3a7a, #ff2665))
+		background-color: #ff2665
+	.course3
+		@include background-image(linear-gradient(bottom, #e39328, #db7c19))
+		background-color: #db7c19
+	.course4
+		@include background-image(linear-gradient(bottom, #519f2a, #328517))
+		background-color: #328517
+	.course5
+		@include background-image(linear-gradient(bottom, #14a5af, #098592))
+		background-color: #098592
+	.course6
+		@include background-image(linear-gradient(bottom, #7e699b, #533e74))
+		background-color: #533e74
+	.course7
+		@include background-image(linear-gradient(bottom, #7f7f80, #565656))
+		background-color: #565656

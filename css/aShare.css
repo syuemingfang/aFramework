@@ -1,0 +1,39 @@
+a.all_forFacebook {
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	background: url(../images/aImage_btn_facebook.png);
+	background-position: center 0px;
+	background-repeat: no-repeat;
+	vertical-align: top;
+	text-indent: -9999px;
+}
+a.all_forfacebook:hover {
+	background-position: center -16px;
+}
+a.all_forPlurk {
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	background: url(../images/aImage_btn_plurk.png);
+	background-position: center 0px;
+	background-repeat: no-repeat;
+	vertical-align: top;
+	text-indent: -9999px;
+}
+a.all_forPlurk:hover {
+	background-position: center -16px;
+}
+a.all_forTwitter {
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	background: url(../images/aImage_btn_twitter.png);
+	background-position: center 0px;
+	background-repeat: no-repeat;
+	vertical-align: top;
+	text-indent: -9999px;
+}
+a.all_forTwitter:hover {
+	background-position: center -16px;
+}

@@ -1,0 +1,17 @@
+@import setup.sass
+
+@media (min-width: $largeWrapWidth)
+	@include grid(setup,$largeWrapWidth,$largeWrapMargin)
+	div.narrow
+		@include grid(setup,$largeWrapWidth*2,$largeWrapMargin*2)
+	div.wide
+		@include grid(setup,$largeWrapWidth/2,$largeWrapMargin/2)
+@media (min-width: $tabletWrapWidth) and (max-width: $wrapWidth)
+	@include grid(setup,$tabletWrapWidth,$tabletWrapMargin)
+	div.narrow
+		@include grid(setup,$tabletWrapWidth*2,$tabletWrapMargin*2)
+	div.wide 
+		@include grid(setup,$tabletWrapWidth/2,$tabletWrapMargin/2)
+@media (max-width: ($tabletWrapWidth) - 1)
+	.container
+		max-width: $tabletWrapWidth - 1

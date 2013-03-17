@@ -1,0 +1,225 @@
+
+//Wrap
+$wrapWidth: 950px
+$wrapMargin: 10px
+
+//Large
+$largeWrapWidth: 1190px
+$largeWrapMargin: 10px
+
+//Tablet
+$tabletWrapWidth: 758px
+$tabletWrapMargin: 10px
+
+//Phone
+$phoneWrapWidth: 470px
+$phoneWrapMargin: 10px
+
+//Inside
+$insideMargin: 10px
+
+//Font
+$fontSize: 16px
+$fontFamily: Tw Cen MT, Courier
+$fontPadding: 1.6
+
+//Other
+$padding: 5px
+$radius: 5px
+
+//Color
+$isMutedColor: #787878
+$isWarningColor: #f19e00
+$isDangerColor: #d21f1f
+$isInfoColor: #357abb
+$isSuccessColor: #53a051
+$isGrayColor: #333333
+
+@mixin round($round,$state)
+	@if $state == "important"
+		-webkit-border-radius: $round !important
+		-moz-border-radius: $round !important
+		-ms-border-radius: $round !important
+		-o-border-radius: $round !important
+		border-radius: $round !important
+	@else
+		-webkit-border-radius: $round
+		-moz-border-radius: $round
+		-ms-border-radius: $round
+		-o-border-radius: $round
+		border-radius: $round
+@mixin round-top-left($round,$state)
+	@if $state == "important"
+		-webkit-border-top-left-radius: $round !important
+		-moz-border-top-left-radius: $round !important
+		-ms-border-top-left-radius: $round !important
+		-o-border-top-left-radius: $round !important
+		border-top-left-radius: $round !important
+	@else
+		-webkit-border-top-left-radius: $round
+		-moz-border-top-left-adius: $round
+		-ms-border-top-left-radius: $round
+		-o-border-top-left-radius: $round
+		border-top-left-radius: $round		
+@mixin round-top-right($round,$state)
+	@if $state == "important"
+		-webkit-border-top-right-radius: $round !important
+		-moz-border-top-right-radius: $round !important
+		-ms-border-top-right-radius: $round !important
+		-o-border-top-right-radius: $round !important
+		border-top-right-radius: $round !important
+	@else
+		-webkit-border-top-right-radius: $round
+		-moz-border-top-right-adius: $round
+		-ms-border-top-left-radius: $round
+		-o-border-top-right-radius: $round
+		border-top-left-radius: $round
+@mixin round-bottom-left($round,$state)
+	@if $state == "important"
+		-webkit-border-bottom-left-radius: $round !important
+		-moz-border-bottom-left-radius: $round !important
+		-ms-border-bottom-left-radius: $round !important
+		-o-border-bottom-left-radius: $round !important
+		border-bottom-left-radius: $round !important
+	@else
+		-webkit-border-bottom-left-radius: $round
+		-moz-border-bottom-left-adius: $round
+		-ms-border-bottom-left-radius: $round
+		-o-border-bottom-left-radius: $round
+		border-bottom-left-radius: $round		
+
+@mixin round-bottom-right($round,$state)
+	@if $state == "important"
+		-webkit-border-bottom-right-radius: $round !important
+		-moz-border-bottom-right-radius: $round !important
+		-ms-border-bottom-right-radius: $round !important
+		-o-border-bottom-right-radius: $round !important
+		border-bottom-right-radius: $round !important
+	@else
+		-webkit-border-bottom-right-radius: $round
+		-moz-border-bottom-right-adius: $round
+		-ms-border-bottom-left-radius: $round
+		-o-border-bottom-right-radius: $round
+		border-bottom-left-radius: $round		
+
+@mixin grid($mode,$wrapWidth,$wrapMargin)
+	$wrapWidth: $wrapWidth+$wrapMargin
+	@for $i from 1 through 12
+		.row .column#{$i}:first-child
+			margin-left: 0
+		.column#{$i}
+			@if $mode == "setup"
+				width: ($wrapWidth*($i/12))-$wrapMargin
+				max-width: ($wrapWidth*($i/12))-$wrapMargin
+				margin-left: $wrapMargin
+			@else
+				float: left
+				zoom: 1
+				min-height: 1px
+		input.column#{$i},select.column#{$i},textarea.column#{$i}
+			@if $mode == "setup"
+				width: ($wrapWidth*($i/12))-$wrapMargin - $padding*4
+				max-width: ($wrapWidth*($i/12))-$wrapMargin - $padding*4
+				*width: ($wrapWidth*($i/12))-$wrapMargin - $padding*8	//IE7
+				*max-width: ($wrapWidth*($i/12))-$wrapMargin - $padding*8	//IE7
+			@else
+				float: none
+				margin-left: 0
+				margin: 0
+		img.column#{$i}
+			float: none
+			height: auto
+			margin-left: 0
+			&.polaroid
+				@if $mode == "setup"
+					width: ($wrapWidth*($i/12))-$wrapMargin - 20	//IE7
+	@for $i from 1 through 12
+		.offset#{$i}
+			@if $mode == "setup"
+				margin-left: ($wrapWidth*($i/12))
+	.container
+		@if $mode == "setup"
+			max-width: $wrapWidth
+			*width: $wrapWidth	//IE7
+		@else 
+			margin: 0 auto
+	.row
+		@if $mode == "setup"
+			margin-bottom: $wrapMargin
+		@else 
+			display: table
+			clear: both
+			*zoom: 1 //IE7
+@mixin hr($mode,$color)
+	@if $mode == "setup"
+		&.solid
+			background-color: $color
+		&.dotted
+			border-bottom: 1px $color dotted
+		&.dashed
+			border-bottom: 1px $color dashed
+	@else
+		&.solid
+			height: 1px
+			border: 0
+		&.dotted
+			border-top: 0
+			border-right: 0
+			border-left: 0
+			height: 1px
+		&.dashed
+			border-top: 0
+			border-right: 0
+			border-left: 0
+			height: 1px		
+
+@mixin button($mode,$backgroundColor,$fontColor)
+	@if $mode == "setup"
+		@include background-image(linear-gradient(bottom, lighten($backgroundColor, 10%) 5%, darken($backgroundColor, 5%) 5%, lighten($backgroundColor, 5%) 20%, $backgroundColor 70%))
+		@include box-shadow(lighten($backgroundColor, 10%) 0px 1px 1px inset)
+		background-color: $backgroundColor
+		border-color: darken($backgroundColor, 20%)
+		border-top-color: darken($backgroundColor, 5%)
+		color: $fontColor
+		*padding: $padding / 2 //IE7
+		&:hover, &:focus
+			@include background-image(linear-gradient(bottom, darken($backgroundColor, 10%) 5%, darken($backgroundColor, 5%) 5%, lighten($backgroundColor, 5%) 20%, $backgroundColor 70%))
+			@include box-shadow(darken($backgroundColor, 10%) 0px 3px 5px inset,  #f8c53b 0px 0px 5px)
+		&:hover, &:focus, &:link, &:visited, &:active
+			color: $fontColor
+	@else
+		border-width: 1px
+		border-style: solid
+		border-top-width: 1px
+		border-top-style: solid
+		*filter: chroma(color=#000000) //IE7
+		cursor: pointer
+		&:link, &:visited, &:active
+			text-decoration: none
+
+@mixin templateButton($backgroundColor,$fontColor)
+	@include background-image(linear-gradient(bottom, lighten($backgroundColor, 10%) 5%, darken($backgroundColor, 5%) 5%, lighten($backgroundColor, 5%) 20%, $backgroundColor 70%))
+	@include box-shadow(lighten($backgroundColor, 10%) 0px 1px 1px inset)
+	background-color: $backgroundColor
+	border-color: darken($backgroundColor, 20%)
+	border-top-color: darken($backgroundColor, 5%)
+	color: $fontColor
+	*padding: $padding - 2 //IE7
+	border-width: 1px
+	border-style: solid
+	border-top-width: 1px
+	border-top-style: solid
+	*filter: chroma(color=#000000) //IE7
+	cursor: pointer
+	&:hover, &:focus
+		@include background-image(linear-gradient(bottom, darken($backgroundColor, 10%) 5%, darken($backgroundColor, 5%) 5%, lighten($backgroundColor, 5%) 20%, $backgroundColor 70%))
+		@include box-shadow(darken($backgroundColor, 10%) 0px 3px 5px inset,  #f8c53b 0px 0px 5px)
+	&:link, &:visited, &:active
+		text-decoration: none
+		color: $fontColor
+
+
+
+
+	
+@import compass/css3

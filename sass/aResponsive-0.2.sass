@@ -1,0 +1,94 @@
+@import setup.sass
+
+//Text(Tablet)
+.textRightTablet
+.textLeftTablet
+.textCenterTablet
+
+//Text(Phone)
+.textRightPhone
+.textLeftPhone
+.textCenterPhone
+
+//Text(Print)
+.textRightPrint
+.textLeftPrint
+.textCenterPrint
+
+@media (min-width: $largeWrapWidth)
+	.smallDesktop
+		font-size: 80% !important
+	.largeDesktop
+		font-size: 200% !important
+
+@media (min-width: $tabletWrapWidth) and (max-width: $wrapWidth)
+	.showPhone
+		display: none !important
+	.showTablet
+		display: inherit !important
+	.showDesktop
+		display: none !important
+	.hidePhone
+		display: inherit !important
+	.hideTablet
+		display: none !important
+	.hideDesktop
+		display: inherit !important
+	.smallTablet
+		font-size: 80% !important
+	.largeTablet
+		font-size: 200% !important
+	.textRightTablet
+		text-align: right !important
+	.textLeftTablet
+		text-align: left !important
+	.textCenterTablet
+		text-align: center !important	
+
+@media (max-width: ($tabletWrapWidth) - 1)
+	.showPhone
+		display: inherit !important
+	.showTablet
+		display: none !important
+	.showDesktop
+		display: none !important
+	.hidePhone
+		display: none !important
+	.hideTablet
+		display: inherit !important
+	.hideDesktop
+		display: inherit !important
+	.smallPhone
+		font-size: 80% !important
+	.largePhone
+		font-size: 200% !important
+	.textRightPhone
+		text-align: right !important
+	.textLeftPhone
+		text-align: left !important
+	.textCenterPhone
+		text-align: center !important
+	.blockPhone
+		display: block !important
+
+	.container
+		*max-width: 100% //IE7
+		margin: 0 auto
+	.row
+		display: block
+		margin-left: 0
+	@for $i from 1 through 12
+		.column#{$i}
+			width: 100%
+			max-width: none
+			float: none
+			height: auto
+			margin-left: 0
+		input.column#{$i}, select.column#{$i}, textarea.column#{$i}
+			float: none
+			width: 100%
+			max-width: 100%
+	img
+		height: auto
+		max-width: 100%
+		margin-left: 0	

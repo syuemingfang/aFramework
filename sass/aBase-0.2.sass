@@ -1,0 +1,358 @@
+@import setup.sass
+
+//Base
+h1, h2, h3, h4, h5, h6
+	font-weight: normal
+	&.isMuted,&.isWarning, &.isDanger, &.isInfo, &.isSuccess,&.isMutedRay,&.isWarningRay, &.isDangerRay, &.isInfoRay, &.isSuccessRay
+		border-left-width: 5px 
+		border-left-style: solid 
+		line-height: 1
+strong
+	font-weight: bold
+	display: inline
+cite
+	font-style: normal
+	display: inline
+
+//Pull
+.pullRight
+	float: right
+.pullCenter
+	margin: 0 auto
+.pullLeft
+	float: left
+
+//Text
+.textRight
+	text-align: right
+.textLeft
+	text-align: left
+.textCenter
+	text-align: center
+
+//Show And Hide
+.hide
+	display: none !important
+.showPhone
+	display: none !important
+.showTablet
+	display: none !important
+.showDesktop
+.hidePhone
+.hideTablet
+.hideDesktop
+	display: none !important
+.hideBorder
+	border: 0 !important
+	td, tr, th
+		border: 0 !important
+.hideLine
+	border: 0 !important
+	td, tr, th
+		border-left: 0 !important
+.hideRound
+	@include round(0,important)
+.hideText
+	text-indent: -9999px
+	white-space: nowrap
+	line-height: 0
+	font-size: 0
+
+
+//Horizontal Line
+hr
+	width: 100%
+	@include hr(base,$isMutedColor)
+	&.isMuted
+		@include hr(base,$isMutedColor)
+	&.isWarning
+		@include hr(base,$isWarningColor)
+	&.isDanger
+		@include hr(base,$isDangerColor)
+	&.isInfo
+		@include hr(base,$isInfoColor)
+	&.isSuccess
+		@include hr(base,$isSuccessColor)
+dl.x
+	dt	
+		float: left
+		clear: left
+		text-align: right
+		overflow: hidden
+		text-overflow: ellipsis
+		white-space: nowrap
+		font-weight: bold
+	dd
+		float: left
+dl.y
+	dt	
+		display: block
+		overflow: hidden
+		text-overflow: ellipsis
+		white-space: nowrap
+		font-weight: bold
+	dd
+		display: block
+.full
+	width: 100%
+.half
+	dt	
+		width: 50%
+	dd
+		width: 50%
+.third
+	dt	
+		width: 30%
+	dd
+		width: 70%
+.fourth
+	dt	
+		width: 40%
+	dd
+		width: 60%
+
+//Unordered And Ordered
+ul.x, ol.x
+	display: block
+	li
+		display: inline-block
+		*display: inline //IE7
+	&.solid
+		>li
+			border-right-width: 1px
+			border-right-style: solid
+		>li:last-child
+			border-right: 0
+	&.dotted
+		>li
+			border-right-width: 1px
+			border-right-style: dotted
+		>li:last-child
+			border-right: 0
+	&.dashed
+		>li
+			border-right-width: 1px
+			border-right-style: dashed
+		>li:last-child
+			border-right: 0	
+ul.y, ol.y
+	li
+		display: block
+	&.solid
+		>li
+			border-bottom-width: 1px
+			border-bottom-style: solid
+	&.dotted
+		>li
+			border-bottom-width: 1px
+			border-bottom-style: dotted
+	&.dashed
+		>li
+			border-bottom-width: 1px
+			border-bottom-style: dashed
+ul.ul, ol.ol
+	&.ul
+		list-style-type: square
+	&.ol
+		list-style-type: decimal
+	&.x
+		li
+			float: left
+			display: list-item !important
+			margin-left: 30px
+			padding-left: 0
+	&.x
+		li
+			display: list-item !important
+			margin-left: 30px
+			padding-left: 0
+
+//Figure(HTML5)	
+figure
+	text-align: center
+	img
+		width: 100%
+		height: auto
+
+//Group
+.group
+	white-space: nowrap
+	a.btn,a.isMuted,a.isWarning, a.isDanger, a.isInfo, a.isSuccess,a.isMutedRay,a.isWarningRay, a.isDangerRay, a.isInfoRay, a.isSuccessRay, input, button
+		@include round(0,important)
+		font: normal
+		margin-left: -1px
+		&:first-child
+			margin-left: 0px
+		&:last-child
+	input
+		margin-left: -1em
+
+//Form
+a.btn,a.isMuted,a.isWarning, a.isDanger, a.isInfo, a.isSuccess,a.isMutedRay,a.isWarningRay, a.isDangerRay, a.isInfoRay, a.isSuccessRay, input, button, select, textarea
+	border-width: 1px
+	border-style: solid 
+	border-top-width: 1px
+	border-top-style: solid 
+	background-color: #ffffff
+	vertical-align: middle
+	display: inline-block
+	@include single-transition(all, 0.5s, ease, 0)
+	&:hover, &:focus
+		outline: 0
+input, button, select, textarea
+	&:hover, &:focus
+		border-color: #f8c53b
+		text-decoration: none
+		@include box-shadow(#dddddd 1px 1px 5px inset, #f8c53b 0px 0px 5px)
+a, input, button
+	box-sizing: border-box
+	&[type="text"], &[type="password"]
+		@include box-shadow(#dddddd 1px 1px 5px inset)
+		background-color: #ffffff
+		&:hover, &:focus
+			outline: 0
+	&[type="radio"], &[type="checkbox"]
+		border: 0
+		&:hover, &:focus
+			border: 0
+			@include single-box-shadow(#ffffff, 0px, 0px, 0px)
+	&.btn,&.isMuted,&.isWarning, &.isDanger, &.isInfo, &.isSuccess,&.isMutedRay,&.isWarningRay, &.isDangerRay, &.isInfoRay, &.isSuccessRay
+		line-height: 1.2
+
+//Mark
+em, mark
+	&.isMuted,&.isWarning, &.isDanger, &.isInfo, &.isSuccess,&.isMutedRay,&.isWarningRay, &.isDangerRay, &.isInfoRay, &.isSuccessRay
+		font-family: Arial
+		font-size: 13px
+		font-style: normal
+		display: inline-block
+		line-height: 1
+		white-space: nowrap
+		vertical-align: baseline
+		border-width: 1px 
+		border-style: solid
+
+//Code
+code
+	font-family: Arial
+	font-size: 13px
+	display: inline-block
+	line-height: 13px
+	white-space: nowrap
+	vertical-align: baseline
+	color: #cc3333
+	background-color: #efefef
+	border: 1px #cdcdcd solid
+	font-size: 12px
+
+//Blockquote
+blockquote
+	&.isMuted,&.isWarning, &.isDanger, &.isInfo, &.isSuccess,&.isMutedRay,&.isWarningRay, &.isDangerRay, &.isInfoRay, &.isSuccessRay
+		border-width: 1px
+		border-style: solid 
+
+//Polaroid
+.polaroid
+	display: inline-block
+	border-width: 3px 
+	border-style: solid
+	*border-width: 3px  //IE7
+	*border-style: solid //IE7
+	*border-color: #cfcfcf //IE7
+
+//Clearfix
+.clearfix
+	&:before, &:after
+		display: table
+		line-height: 0
+		content: ""
+	&:after
+		clear: both
+
+//Table
+table.table
+	word-break: break-all
+	border-width: 1px
+	border-style: solid 
+	border-top-width: 1px
+	border-top-style: solid 
+	border-collapse: separate
+	border-collapse: collapse \9 //IE8
+	*border-collapse: collapse //IE7
+	_border-collapse: collapse //IE6
+	border-left: 0
+	border-spacing: 0
+	thead tr:first-child th,  caption + tbody tr:first-child th,  caption + tbody tr:first-child td,  colgroup + thead tr:first-child th,  colgroup + tbody tr:first-child th,  colgroup + tbody tr:first-child td,  thead:first-child tr:first-child th,  tbody:first-child tr:first-child th,  tbody:first-child tr:first-child td
+		border-top: 0
+	thead
+		border: 0
+	th, thead td
+		font-weight: bold
+
+//Small And Large
+.small, p.small, input.small, a.small, small
+	font-size: 80% !important
+.large, p.large, input.large, a.large
+	font-size: 200% !important
+
+//Hover Effect
+.sub
+	display: none
+
+.hoverTop, .hoverDown, .hoverLeft, .hoverRight
+	position: relative
+	li:hover
+		.sub
+			padding: 0
+			margin: 0
+			display: block
+			position: absolute
+			width: 100%
+			text-align: left
+			background-color: #ffffff
+			li
+				padding-left: 10px
+			a
+				display: block
+.hoverTop
+	li:hover
+		.sub
+			bottom: 100%
+			left: 0
+
+.hoverDown
+	li:hover
+		.sub
+			top: 100%
+			left: 0
+
+.hoverLeft
+	li:hover
+		.sub
+			top: 0
+			left: 100%
+.hoverRight
+	li:hover
+		.sub
+			top: 0
+			right: 100%
+
+
+@media print
+	//Show And Hide
+	.hidePrint
+		display: none !important
+	.showPrint
+		display: inherit !important
+	//Small And Large
+	.smallPrint
+		font-size: 80% !important
+	.largePrint
+		font-size: 200% !important
+	//Text
+	.textRightPrint
+		text-align: right !important
+	.textLeftPrint
+		text-align: left !important
+	.textCenterPrint
+		text-align: center !important

@@ -1,0 +1,456 @@
+@import setup.sass
+
+//Base
+@for $i from 1 through 6
+	h#{$i}
+		font-size: 100%+100*(1/$i)*$fontPadding	
+body
+	font-size: $fontSize
+	font-family: $fontFamily
+	line-height: $fontPadding
+	a
+		&:link
+			color: $isInfoColor
+			text-decoration: none
+		&:visited
+			color: $isInfoColor
+		&:hover
+			color: $isDangerColor
+		&:active
+			color: $isInfoColor
+cite
+	color: lighten($isGrayColor, 20%)
+h1, h2, h3, h4, h5, h6
+	&.isMuted
+		border-left-color: $isMutedColor
+	&.isWarning
+		border-left-color: $isWarningColor
+	&.isDanger
+		border-left-color: $isDangerColor
+	&.isInfo
+		border-left-color: $isInfoColor
+	&.isSuccess
+		border-left-color: $isSuccessColor
+	&.isMutedRay
+		border-left-color: lighten($isMutedColor, 30%)
+	&.isWarningRay
+		border-left-color: lighten($isWarningColor, 30%)
+	&.isDangerRay
+		border-left-color: lighten($isDangerColor, 30%)
+	&.isInfoRay
+		border-left-color: lighten($isInfoColor, 30%)
+	&.isSuccessRay
+		border-left-color: lighten($isSuccessColor, 30%)		
+	&.isMuted,&.isWarning, &.isDanger, &.isInfo, &.isSuccess,&.isMutedRay,&.isWarningRay, &.isDangerRay, &.isInfoRay, &.isSuccessRay
+		padding-left: $padding
+		&.narrow
+			padding-left: $padding/2
+		&.wide
+			padding-left: $padding*2
+
+// Horizontal Line
+hr
+	@include hr(setup,$isMutedColor)
+	&.isMuted
+		@include hr(setup,$isMutedColor)
+	&.isWarning
+		@include hr(setup,$isWarningColor)
+	&.isDanger
+		@include hr(setup,$isDangerColor)
+	&.isInfo
+		@include hr(setup,$isInfoColor)
+	&.isSuccess
+		@include hr(setup,$isSuccessColor)
+	&.isMutedRay
+		@include hr(setup,lighten($isMutedColor, 50%))
+	&.isWarningRay
+		@include hr(setup,lighten($isWarningColor, 50%))
+	&.isDangerRay
+		@include hr(setup,lighten($isDangerColor, 50%))
+	&.isInfoRay
+		@include hr(setup,lighten($isInfoColor, 50%))
+	&.isSuccessRay
+		@include hr(setup,lighten($isSuccessColor, 50%))
+
+//Unordered And Ordered
+ul.x, ol.x
+	li
+		padding-right: $padding
+	&.solid
+		>li
+			border-right-color: lighten($isGrayColor, 50%)
+			padding-left: $padding
+			padding-right: $padding
+		>li:last-child
+	&.dotted
+		>li
+			border-right-color: lighten($isGrayColor, 50%)
+			padding-left: $padding
+			padding-right: $padding
+		>li:last-child
+	&.dashed
+		>li
+			border-right-color: lighten($isGrayColor, 50%)
+			padding-left: $padding
+			padding-right: $padding
+		>li:last-child
+			border-right: 0	
+ul.y, ol.y
+	li
+	&.solid
+		>li
+			border-bottom-color: lighten($isGrayColor, 50%)
+			padding-bottom: $padding
+	&.dotted
+		>li
+			border-bottom-color: lighten($isGrayColor, 50%)
+			padding-bottom: $padding
+	&.dashed
+		>li
+			border-bottom-color: lighten($isGrayColor, 50%)
+			padding-bottom: $padding
+ul.ul, ol.ol
+	&.ul
+		padding-left: $padding*4
+	&.ol
+		padding-left: $padding*4
+	&.x
+		li
+			padding-right: $padding*2
+	&.y
+		li
+
+//Group
+.group
+	a.btn,a.isMuted,a.isWarning, a.isDanger, a.isInfo, a.isSuccess,a.isMutedRay,a.isWarningRay, a.isDangerRay, a.isInfoRay, a.isSuccessRay, input, button
+		&:first-child
+			@include round-top-left($radius,important)
+			@include round-bottom-left($radius,important)
+			&.roundMin
+				@include round-top-left($radius*2,important)
+				@include round-bottom-left($radius*2,important)
+			&.roundMax
+				@include round-top-left($radius*4,important)
+				@include round-bottom-left($radius*4,important)
+		&:last-child
+			@include round-top-right($radius,important)
+			@include round-bottom-right($radius,important)
+			&.roundMin
+				@include round-top-right($radius*2,important)
+				@include round-bottom-right($radius*2,important)
+			&.roundMax
+				@include round-top-right($radius*4,important)
+				@include round-bottom-right($radius*4,important)
+//Padding
+div.padding
+	padding: $padding*2
+	*padding: ($padding - 2)*2 //IE7
+span.padding, label.padding
+	padding-left: $padding*2
+	padding-right: $padding*2
+	*padding-left: ($padding - 2)*2 //IE7
+	*padding-right: ($padding - 2)*2 //IE7
+
+//Group
+.group
+	white-space: nowrap
+	a.btn,a.isMuted,a.isWarning, a.isDanger, a.isInfo, a.isSuccess,a.isMutedRay,a.isWarningRay, a.isDangerRay, a.isInfoRay, a.isSuccessRay, input, button
+		&:first-child
+			@include round-top-left($radius,important)
+			@include round-bottom-left($radius,important)
+			&.roundMin
+				@include round-top-left($radius*2,important)
+				@include round-bottom-left($radius*2,important)
+			&.roundMax
+				@include round-top-left($radius*4,important)
+				@include round-bottom-left($radius*4,important)
+		&:last-child
+			@include round-top-right($radius,important)
+			@include round-bottom-right($radius,important)
+			&.roundMin
+				@include round-top-right($radius*2,important)
+				@include round-bottom-right($radius*2,important)
+			&.roundMax
+				@include round-top-right($radius*4,important)
+				@include round-bottom-right($radius*4,important)
+
+//Form
+a.btn, a.isMuted, a.isWarning, a.isDanger, a.isInfo, a.isSuccess,a.isMutedRay,a.isWarningRay, a.isDangerRay, a.isInfoRay, a.isSuccessRay, input, button, select, textarea
+	color: $isGrayColor
+	padding: $padding/2 $padding*2 $padding/2 $padding*2
+	border-color: lighten($isGrayColor, 60%)
+	border-top-color: lighten($isGrayColor, 70%)
+	@include border-radius($radius)
+	&:hover, &:focus
+
+a, input, button
+
+	&.btn,&.isMuted,&.isWarning, &.isDanger, &.isInfo, &.isSuccess,&.isMutedRay,&.isWarningRay, &.isDangerRay, &.isInfoRay, &.isSuccessRay, &[type="button"], &[type="submit"], &[type="reset"], &[type="file"]::-webkit-file-upload-button
+		@include single-text-shadow(#ffffff, 0px, 0px, 2px)
+		@include button(setup,lighten($isGrayColor, 100%),$isGrayColor)
+	&.isMuted
+		@include single-text-shadow(darken($isMutedColor,50%), 0px, 0px, 2px)
+		@include button(setup,$isMutedColor,#ffffff)
+	&.isWarning
+		@include single-text-shadow(darken($isWarningColor,50%), 0px, 0px, 2px)
+		@include button(setup,$isWarningColor,#ffffff)
+	&.isDanger
+		@include single-text-shadow(darken($isDangerColor,50%), 0px, 0px, 2px)
+		@include button(setup,$isDangerColor,#ffffff)
+	&.isInfo
+		@include single-text-shadow(darken($isInfoColor,50%), 0px, 0px, 2px)
+		@include button(setup,$isInfoColor,#ffffff)
+	&.isSuccess
+		@include single-text-shadow(darken($isSuccessColor,50%), 0px, 0px, 2px)
+		@include button(setup,$isSuccessColor,#ffffff)
+	&.isMutedRay
+		@include single-text-shadow(lighten($isMutedColor,70%), 0px, 0px, 2px)
+		@include button(setup,lighten($isMutedColor,50%),darken($isMutedColor,20%))
+	&.isWarningRay
+		@include single-text-shadow(lighten($isWarningColor,70%), 0px, 0px, 2px)
+		@include button(setup,lighten($isWarningColor,50%),darken($isWarningColor,20%))
+	&.isDangerRay
+		@include single-text-shadow(lighten($isDangerColor,70%), 0px, 0px, 2px)
+		@include button(setup,lighten($isDangerColor,50%),darken($isDangerColor,20%))
+	&.isInfoRay
+		@include single-text-shadow(lighten($isInfoColor,70%), 0px, 0px, 2px)
+		@include button(setup,lighten($isInfoColor,50%),darken($isInfoColor,20%))
+	&.isSuccessRay
+		@include single-text-shadow(lighten($isSuccessColor,70%), 0px, 0px, 2px)
+		@include button(setup,lighten($isSuccessColor,50%),darken($isSuccessColor,20%))
+
+//Mark
+em, mark
+	&.isMuted,&.isWarning, &.isDanger, &.isInfo, &.isSuccess,&.isMutedRay,&.isWarningRay, &.isDangerRay, &.isInfoRay, &.isSuccessRay
+		@include border-radius($radius)
+		@include single-text-shadow(0, -1px, 0, $isGrayColor)
+		padding: $padding - 2 ($padding - 2)*2
+	&.isMuted
+		background-color: $isMutedColor
+		border-color: darken($isMutedColor, 10%)
+		color: #ffffff
+	&.isWarning
+		background-color: $isWarningColor
+		border-color: darken($isWarningColor, 10%)
+		color: #ffffff
+	&.isDanger
+		background-color: $isDangerColor
+		border-color: darken($isDangerColor, 10%)
+		color: #ffffff
+	&.isInfo
+		background-color: $isInfoColor
+		border-color: darken($isInfoColor, 10%)
+		color: #ffffff
+	&.isSuccess
+		background-color: $isSuccessColor
+		border-color: darken($isSuccessColor, 10%)
+		color: #ffffff
+	&.isMutedRay
+		background-color: lighten($isMutedColor, 50%)
+		border-color: $isMutedColor
+		color: $isMutedColor
+	&.isWarningRay
+		background-color: lighten($isWarningColor, 50%)
+		border-color: $isWarningColor
+		color: $isWarningColor
+	&.isDangerRay
+		background-color: lighten($isDangerColor, 50%)
+		border-color: $isDangerColor
+		color: $isDangerColor
+	&.isInfoRay
+		background-color: lighten($isInfoColor, 50%)
+		border-color: $isInfoColor
+		color: $isInfoColor
+	&.isSuccessRay
+		background-color: lighten($isSuccessColor, 50%)
+		border-color: $isSuccessColor
+		color: $isSuccessColor
+
+
+//Code
+code
+	@include border-radius(5px)
+	padding: $padding - 2 ($padding - 2)*2
+	@include single-text-shadow(0, -1px, 0, $isGrayColor)
+
+//Text
+p, strong, span, small
+	&.isMutedRay
+		color: lighten($isMutedColor, 40%)
+	&.isWarningRay
+		color: lighten($isWarningColor, 40%)
+	&.isDangerRay
+		color: lighten($isDangerColor, 40%)
+	&.isInfoRay
+		color: lighten($isInfoColor, 40%)
+	&.isSuccessRay
+		color: lighten($isSuccessColor, 40%)
+	&.isMuted
+		color: $isMutedColor
+	&.isWarning
+		color: $isWarningColor
+	&.isDanger
+		color: $isDangerColor
+	&.isInfo
+		color: $isInfoColor
+	&.isSuccess
+		color: $isSuccessColor
+
+
+//Blockquote
+blockquote
+	&.isMuted,&.isWarning, &.isDanger, &.isInfo, &.isSuccess,&.isMutedRay,&.isWarningRay, &.isDangerRay, &.isInfoRay, &.isSuccessRay
+		padding: $padding*2 $padding*4 $padding*2 $padding*4
+		@include border-radius($radius)
+	&.isMutedRay
+		color: $isMutedColor
+		background-color: lighten($isMutedColor, 50%)
+		border-color: lighten($isMutedColor, 30%)
+	&.isWarningRay
+		color: $isWarningColor
+		background-color: lighten($isWarningColor, 50%)
+		border-color: lighten($isWarningColor, 30%)
+	&.isDangerRay
+		color: $isDangerColor
+		background-color: lighten($isDangerColor, 50%)
+		border-color: lighten($isDangerColor, 30%)
+	&.isInfoRay
+		color: $isInfoColor
+		background-color: lighten($isInfoColor, 50%)
+		border-color: lighten($isInfoColor, 30%)
+	&.isSuccessRay
+		color: $isSuccessColor
+		background-color: lighten($isSuccessColor, 50%)
+		border-color: lighten($isSuccessColor, 30%)
+	&.isMuted
+		color: lighten($isMutedColor, 50%)
+		background-color: $isMutedColor
+		border-color: darken($isMutedColor, 5%)
+	&.isWarning
+		color: lighten($isWarningColor, 50%)
+		background-color: lighten(scale-saturation($isWarningColor, -20), 0%)
+		border-color: darken($isWarningColor, 15%)
+	&.isDanger
+		color: lighten($isDangerColor, 50%)
+		background-color: lighten(scale-saturation($isDangerColor, -20), 0%)
+		border-color: darken($isDangerColor, 15%)
+	&.isInfo
+		color:  lighten($isInfoColor, 50%)
+		background-color: lighten(scale-saturation($isInfoColor, -20), 0%)
+		border-color: darken($isInfoColor, 15%)
+	&.isSuccess
+		color:  lighten($isSuccessColor, 50%)
+		background-color: lighten(scale-saturation($isSuccessColor, -20), 0%)
+		border-color: darken($isSuccessColor, 15%)
+
+//Background
+div, table, td, tr, th, thead, tbody, tfoot, dl, dd, dt, ul, ol, li, section, article
+	&.isMutedRay,&.isWarningRay,&.isDangerRay,&.isInfoRay,&.isSuccessRay,&.isGrayRay
+		color: $isGrayColor
+	&.isMuted,&.isWarning, &.isDanger, &.isInfo, &.isSuccess, &.isGray
+		color: lighten($isGrayColor, 100%)
+	&.isMutedRay
+		background-color: lighten($isMutedColor, 50%)
+	&.isWarningRay
+		background-color: lighten($isWarningColor, 50%)
+	&.isDangerRay
+		background-color: lighten($isDangerColor, 50%)
+	&.isInfoRay
+		background-color: lighten($isInfoColor, 50%)
+	&.isSuccessRay
+		background-color: lighten($isSuccessColor, 50%)
+	&.isGrayRay
+		background-color: lighten($isGrayColor, 100%)
+	&.isMuted
+		background-color: $isMutedColor
+	&.isWarning
+		background-color: $isWarningColor
+	&.isDanger
+		background-color: $isDangerColor
+	&.isInfo
+		background-color: $isInfoColor
+	&.isSuccess
+		background-color: $isSuccessColor
+	&.isGray
+		background-color: $isGrayColor
+
+//Text Space
+p, h1, h2, h3, h4, h5, h6
+	&.narrow
+		line-height: $fontPadding/2 !important
+	&.wide
+		line-height: $fontPadding*2	!important
+
+
+//Shadow
+.shadow
+	@include single-box-shadow(lighten($isGrayColor, 55%), 0, 0, 10px)
+.shadowMin
+	@include single-box-shadow(lighten($isGrayColor, 70%), 0, 0, 10px)
+.shadowMax
+	@include single-box-shadow(lighten($isGrayColor, 30%), 0, 0, 10px)
+
+//Polaroid
+.polaroid
+	border-color: lighten($isGrayColor, 100%)
+	@include border-radius($radius)	
+	@include single-box-shadow(lighten($isGrayColor, 50%), 0, 0, 10px)
+
+//Round
+.round
+	@include round($radius,important)
+.roundMin
+	@include round($radius/2,important)
+.roundMax
+	@include round($radius*4,important)
+
+//Table
+table.table
+	border-color: lighten($isGrayColor, 70%)
+	border-top-color: 1px lighten($isGrayColor, 75%)
+	@include border-radius($radius)	
+	thead:first-child tr:first-child > th:first-child,  tbody:first-child tr:first-child > td:first-child
+		@include border-top-left-radius($radius)
+	thead:first-child tr:first-child > th:last-child,  tbody:first-child tr:first-child > td:last-child	
+		@include border-top-right-radius($radius)
+	thead:last-child tr:last-child > th:first-child,  tbody:last-child tr:last-child > td:first-child,  tfoot:last-child tr:last-child > td:first-child
+		@include border-bottom-left-radius($radius)
+	thead:last-child tr:last-child > th:last-child,  tbody:last-child tr:last-child > td:last-child,  tfoot:last-child tr:last-child > td:last-child
+		@include border-bottom-right-radius($radius)
+	thead
+		@include background-image(linear-gradient(top, lighten($isGrayColor, 100%), lighten($isGrayColor, 78%)))
+		background-color: lighten($isGrayColor, 75%)
+		@include single-box-shadow(lighten($isGrayColor, 50%), 0, 0, 10px)
+	th, td
+		padding: $padding
+		border-top: 1px lighten($isGrayColor, 70%) solid 
+		border-left: 1px lighten($isGrayColor, 70%) solid 
+	th, thead td
+		*border-bottom-color: lighten($isGrayColor, 75%) //IE7
+
+table.striped
+	tbody tr
+		&:nth-child(odd)
+			background-color: lighten($isGrayColor, 100%)
+		&:nth-child(even)
+			background-color: lighten($isGrayColor,79%)	
+		&:hover
+			background-color: lighten($isGrayColor, 77%)
+
+//Hover
+ul, ol
+	&.hoverMutedRay
+		>li:hover
+			background-color: lighten($isMutedColor, 50%)
+	&.hoverWarningRay
+		>li:hover
+			background-color: lighten($isWarningColor, 50%)
+	&.hoverDangerRay
+		>li:hover
+			background-color: lighten($isDangerColor, 50%)
+	&.hoverInfoRay
+		>li:hover
+			background-color: lighten($isInfoColor, 50%)
+	&.hoverSuccessRay
+		>li:hover
+			background-color: lighten($isSuccessColor, 50%)
