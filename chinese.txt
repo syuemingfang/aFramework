@@ -110,3 +110,4 @@
 .index_forLanguageText_13│依需求選取元件，當然更歡迎一次使用全部的元件，享受更快速便捷的工作環境。
 .index_forLanguageText_14│感謝您的試用
 .index_forLanguageText_15│歡迎試用後提供建議給我們，我們將會詳細閱讀您寶貴的意見。
+.index_forLanguageText_16│支援各種裝置。
