@@ -1,0 +1,22 @@
+@import setup.sass
+
+//Form
+input, button, select, textarea
+	border-width: 1px
+	border-color: #888888
+	border-style: solid 
+	border-top-width: 1px
+	border-color: #aaaaaa
+	border-top-style: solid 
+	background-color: #ffffff
+	vertical-align: middle
+	display: inline-block
+	line-height: 1.6
+	@include round(5px,"")
+	@include single-transition(all, 0.5s, ease, 0)
+	&:hover, &:focus
+		border-color: #f8c53b
+		text-decoration: none
+		@include box-shadow(#dddddd 1px 1px 5px inset, #f8c53b 0px 0px 5px)
+		outline: 0
+
