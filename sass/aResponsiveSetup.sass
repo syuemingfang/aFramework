@@ -13,5 +13,14 @@
 	div.wide 
 		@include grid(setup,$tabletWrapWidth/2,$tabletWrapMargin/2)
 @media (max-width: ($tabletWrapWidth) - 1)
+	.xPhone
+		@include x(setup,$padding,lighten($isGrayColor, 50%))
+	.yPhone	
+		@include y(setup,$padding,lighten($isGrayColor, 50%))
 	.container
 		max-width: $tabletWrapWidth - 1
+@media (min-width: $tabletWrapWidth)
+	.xDesktop
+		@include x(setup,$padding,lighten($isGrayColor, 50%))
+	.yDesktop
+		@include y(setup,$padding,lighten($isGrayColor, 50%))

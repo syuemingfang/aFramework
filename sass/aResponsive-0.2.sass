@@ -1,5 +1,10 @@
 @import setup.sass
+@import aResponsiveSetup.sass
 
+.xDesktop
+	@include x(base,"","")
+.yDesktop
+	@include y(base,"","")
 //Text(Tablet)
 .textRightTablet
 .textLeftTablet
@@ -25,15 +30,15 @@
 	.showPhone
 		display: none !important
 	.showTablet
-		display: inherit !important
+		
 	.showDesktop
 		display: none !important
 	.hidePhone
-		display: inherit !important
+		
 	.hideTablet
 		display: none !important
 	.hideDesktop
-		display: inherit !important
+		
 	.smallTablet
 		font-size: 80% !important
 	.largeTablet
@@ -55,9 +60,9 @@
 	.hidePhone
 		display: none !important
 	.hideTablet
-		display: inherit !important
+		
 	.hideDesktop
-		display: inherit !important
+		
 	.smallPhone
 		font-size: 80% !important
 	.largePhone
@@ -70,7 +75,10 @@
 		text-align: center !important
 	.blockPhone
 		display: block !important
-
+	.xPhone
+		@include x(base,"","")
+	.yPhone	
+		@include y(base,"","")
 	.container
 		*max-width: 100% //IE7
 		margin: 0 auto
@@ -84,11 +92,18 @@
 			float: none
 			height: auto
 			margin-left: 0
+			.group
+				@for $j from 1 through 12
+					.column#{$j}
+						width: ($j / $i) * 100%
 		input.column#{$i}, select.column#{$i}, textarea.column#{$i}
 			float: none
 			width: 100%
 			max-width: 100%
+		.row .offset#{$i}:first-child, .offset#{$i}
+			margin-left: 0
 	img
 		height: auto
 		max-width: 100%
-		margin-left: 0	
+		margin-left: 0
+//@media (min-width: $tabletWrapWidth)

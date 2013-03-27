@@ -106,7 +106,8 @@ $isGrayColor: #333333
 	$wrapWidth: $wrapWidth+$wrapMargin
 	@for $i from 1 through 12
 		.row .column#{$i}:first-child
-			margin-left: 0
+			@if $mode == "grid"
+				margin-left: 0
 		.column#{$i}
 			@if $mode == "setup"
 				width: ($wrapWidth*($i/12))-$wrapMargin
@@ -116,7 +117,7 @@ $isGrayColor: #333333
 				float: left
 				zoom: 1
 				min-height: 1px
-		input.column#{$i},select.column#{$i},textarea.column#{$i}
+		input.column#{$i}, select.column#{$i}, textarea.column#{$i}
 			@if $mode == "setup"
 				width: ($wrapWidth*($i/12))-$wrapMargin - $padding*4
 				max-width: ($wrapWidth*($i/12))-$wrapMargin - $padding*4
@@ -133,10 +134,10 @@ $isGrayColor: #333333
 			&.polaroid
 				@if $mode == "setup"
 					width: ($wrapWidth*($i/12))-$wrapMargin - 20	//IE7
-	@for $i from 1 through 12
-		.offset#{$i}
+		.row .offset#{$i}:first-child, .offset#{$i}
 			@if $mode == "setup"
-				margin-left: ($wrapWidth*($i/12))
+				margin-left: ($wrapWidth*($i/12)) - $wrapMargin
+
 	.container
 		@if $mode == "setup"
 			max-width: $wrapWidth
@@ -172,6 +173,110 @@ $isGrayColor: #333333
 			border-right: 0
 			border-left: 0
 			height: 1px		
+
+
+@mixin x($mode,$padding,$color)
+	@if $mode == "setup"
+		>li
+			padding-right: $padding
+		&.solid
+			>li
+				border-right-color: $color
+				padding-left: $padding
+				padding-right: $padding
+			>li:last-child
+		&.dotted
+			>li
+				border-right-color: $color
+				padding-left: $padding
+				padding-right: $padding
+			>li:last-child
+		&.dashed
+			>li
+				border-right-color: $color
+				padding-left: $padding
+				padding-right: $padding
+			>li:last-child
+				border-right: 0
+		&.wide
+			>li
+				padding-left: $padding * 2
+				padding-right: $padding * 2
+		&.narrow
+			>li
+				padding-left: $padding / 2
+				padding-right: $padding / 2
+	@else
+		display: inline-block
+		>li
+			display: inline-block
+			*display: inline //IE7
+		&.solid
+			>li
+				border-left-width: 1px
+				border-left-style: solid
+			>li:first-child
+				border-left-width: 0
+		&.dotted
+			>li
+				border-left-width: 1px
+				border-left-style: dotted
+			>li:first-child
+				border-left-width: 0
+		&.dashed
+			>li
+				border-left-width: 1px
+				border-left-style: dashed
+			>li:first-child
+				border-left-width: 0	
+@mixin y($mode,$padding,$color)
+	@if $mode == "setup"
+		>li
+		&.solid
+			>li
+				border-top-color: $color
+				padding-top: $padding / 2
+				padding-bottom: $padding / 2
+		&.dotted
+			>li
+				border-top-color: $color
+				padding-top: $padding / 2
+				padding-bottom: $padding / 2
+		&.dashed
+			>li
+				border-top-color: $color
+				padding-top: $padding / 2
+				padding-bottom: $padding / 2
+		&.wide
+			>li
+				padding-top: $padding
+				padding-bottom: $padding
+		&.narrow
+			>li
+				padding-top: $padding / 3
+				padding-bottom: $padding / 3
+	@else
+		>li
+			display: block
+		&.solid
+			>li
+				border-top-width: 1px
+				border-top-style: solid
+			>li:first-child
+				border-top-width: 0	
+		&.dotted
+			>li
+				border-top-width: 1px
+				border-top-style: dotted
+			>li:first-child
+				border-top-width: 0	
+		&.dashed
+			>li
+				border-top-width: 1px
+				border-top-style: dashed
+			>li:first-child
+				border-top-width: 0	
+
 
 @mixin button($mode,$backgroundColor,$fontColor)
 	@if $mode == "setup"
@@ -219,6 +324,27 @@ $isGrayColor: #333333
 		color: $fontColor
 
 
+@mixin templateButton_2($backgroundColor,$fontColor)
+	@include background-image(radial-gradient(bottom, darken($backgroundColor, 10%), $backgroundColor))
+	@include background-image(linear-gradient(top, darken($backgroundColor, 10%) 0%, $backgroundColor 50%, darken($backgroundColor, 5%) 51%, lighten($backgroundColor, 10%) 100%))
+	@include box-shadow(lighten($backgroundColor, 10%) 0px 1px 1px inset)
+	background-color: $backgroundColor
+	border-color: darken($backgroundColor, 20%)
+	border-top-color: darken($backgroundColor, 10%)
+	color: $fontColor
+	*padding: $padding - 2 //IE7
+	border-width: 1px
+	border-style: solid
+	border-top-width: 1px
+	border-top-style: solid
+	*filter: chroma(color=#000000) //IE7
+	cursor: pointer
+	&:hover, &:focus
+		@include background-image(radial-gradient(top, darken($backgroundColor, 10%), $backgroundColor))
+		@include box-shadow(darken($backgroundColor, 10%) 0px 3px 5px inset,  #f8c53b 0px 0px 5px)
+	&:link, &:visited, &:active
+		text-decoration: none
+		color: $fontColor
 
 
 	

@@ -57,6 +57,15 @@ cite
 	white-space: nowrap
 	line-height: 0
 	font-size: 0
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video 
+	&.reset
+		margin: 0
+		padding: 0
+		border: 0
+		font: inherit
+		font-size: 100%
+		vertical-align: baseline
+		background: none
 
 
 //Horizontal Line
@@ -96,16 +105,19 @@ dl.y
 .full
 	width: 100%
 .half
+	width: 50%
 	dt	
 		width: 50%
 	dd
 		width: 50%
 .third
+	width: 33%
 	dt	
 		width: 30%
 	dd
 		width: 70%
 .fourth
+	width: 25%
 	dt	
 		width: 40%
 	dd
@@ -113,43 +125,9 @@ dl.y
 
 //Unordered And Ordered
 ul.x, ol.x
-	display: block
-	li
-		display: inline-block
-		*display: inline //IE7
-	&.solid
-		>li
-			border-right-width: 1px
-			border-right-style: solid
-		>li:last-child
-			border-right: 0
-	&.dotted
-		>li
-			border-right-width: 1px
-			border-right-style: dotted
-		>li:last-child
-			border-right: 0
-	&.dashed
-		>li
-			border-right-width: 1px
-			border-right-style: dashed
-		>li:last-child
-			border-right: 0	
+	@include x(base,"","")
 ul.y, ol.y
-	li
-		display: block
-	&.solid
-		>li
-			border-bottom-width: 1px
-			border-bottom-style: solid
-	&.dotted
-		>li
-			border-bottom-width: 1px
-			border-bottom-style: dotted
-	&.dashed
-		>li
-			border-bottom-width: 1px
-			border-bottom-style: dashed
+	@include y(base,"","")
 ul.ul, ol.ol
 	&.ul
 		list-style-type: square
@@ -206,7 +184,7 @@ input, button, select, textarea
 		@include box-shadow(#dddddd 1px 1px 5px inset, #f8c53b 0px 0px 5px)
 a, input, button
 	box-sizing: border-box
-	&[type="text"], &[type="password"]
+	&[type="text"], &[type="password"], &[type="datetime"], &[type="datetime-local"], &[type="date"], &[type="month"], &[type="time"], &[type="week"], &[type="number"], &[type="email"], &[type="url"], &[type="search"], &[type="tel"], &[type="color"]
 		@include box-shadow(#dddddd 1px 1px 5px inset)
 		background-color: #ffffff
 		&:hover, &:focus
@@ -226,7 +204,7 @@ em, mark
 		font-size: 13px
 		font-style: normal
 		display: inline-block
-		line-height: 1
+		line-height: 0.8
 		white-space: nowrap
 		vertical-align: baseline
 		border-width: 1px 
@@ -237,7 +215,7 @@ code
 	font-family: Arial
 	font-size: 13px
 	display: inline-block
-	line-height: 13px
+	line-height: 0.8
 	white-space: nowrap
 	vertical-align: baseline
 	color: #cc3333
@@ -256,6 +234,7 @@ blockquote
 	display: inline-block
 	border-width: 3px 
 	border-style: solid
+	box-sizing: border-box
 	*border-width: 3px  //IE7
 	*border-style: solid //IE7
 	*border-color: #cfcfcf //IE7
@@ -291,15 +270,12 @@ table.table
 
 //Small And Large
 .small, p.small, input.small, a.small, small
-	font-size: 80% !important
+	font-size: 80%
 .large, p.large, input.large, a.large
-	font-size: 200% !important
+	font-size: 200%
 
-//Hover Effect
-.sub
-	display: none
-
-.hoverTop, .hoverDown, .hoverLeft, .hoverRight
+//Drop Effect
+.dropTop, .dropDown, .dropLeft, .dropRiht
 	position: relative
 	li:hover
 		.sub
@@ -314,29 +290,30 @@ table.table
 				padding-left: 10px
 			a
 				display: block
-.hoverTop
+.dropTop
 	li:hover
 		.sub
 			bottom: 100%
 			left: 0
 
-.hoverDown
+.dropDown
 	li:hover
 		.sub
 			top: 100%
 			left: 0
 
-.hoverLeft
+.dropLeft
 	li:hover
 		.sub
 			top: 0
 			left: 100%
-.hoverRight
+.dropRiht
 	li:hover
 		.sub
 			top: 0
 			right: 100%
-
+.sub
+	display: none
 
 @media print
 	//Show And Hide

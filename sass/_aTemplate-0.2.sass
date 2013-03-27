@@ -7,13 +7,12 @@
     $color_triad1: adjust_hue(scale-saturation($color, -30), 30)
     $color_triad2: adjust_hue(scale-saturation($color, -30), -60)
     $radius: 5px
-    // all
+    //All
     .#{$table}, .aTemplate
-        margin-bottom: 10px
         font-size: 100%
         color: $color_saturation
         font-family: $fontFamily
-        em
+        strong
             font-weight: normal
             font-style: normal
             color: $color_complement
@@ -27,12 +26,19 @@
                 color: $color
             &:visited
                 color: $color
-            &:hover
+            &:hover, &:focus
                 color: $color_triad1
             &:active
                 color: $color_triad1
-    // page
-    div.#{$table}, div.aTemplate
+        //Headings           
+        @for $i from 1 through 6
+            h#{$i}.#{$table}, h#{$i}.aTemplate
+                font-size: 100%+100*(1/$i)*$fontPadding
+                border-left: 5px $color solid
+                padding-left: 15px
+                line-height: 0.8
+    //Page
+    ul.#{$table}, ul.aTemplate
         display: inline
         margin: 2px
         color: $color_light
@@ -44,6 +50,7 @@
             padding: 1px 6px 1px 6px
             +border-radius($radius, $radius)
             @include single-transition(all, 0.5s, ease, 0)
+            &:link
             &:visited
                 color: $color_light
             &:hover, &:focus
@@ -57,7 +64,7 @@
             text-decoration: none
             padding: 5px 10px 5px 10px
             display: inline-block
-    // table
+    //Table
     table.#{$table}, table.aTemplate
         border-collapse: collapse
         word-break: break-all
@@ -74,13 +81,14 @@
             &:hover
                 background: #fafafa
         td, th
-            // all td
+            //All td
             padding: 10px
             border-bottom: 1px $color_lighter solid
         thead td, thead th
-            // table top head
+            //Table top head
             font-size: 120%
             border: 0
+            background-color: $color_light
             @include background-image(linear-gradient(bottom, $color 1%, $color_light 20%, $color 60%))
             background-color: $color
             color: #ffffff
@@ -88,19 +96,20 @@
             text-align: center
             @include single-text-shadow(#666666, 0px, 0px, 2px)
         th
-            // table side head
+            //Table side head
             font-size: 120%
             border: 1px $color_lighter solid
             background-color: $color_lighter
             color: $color_saturation
             overflow: hidden
             text-align: center
-    // form
-    fieldset.#{$table}, fieldset.aTemplate
+    //Form
+    fieldset.#{$table}, fieldset.aTemplate, form.#{$table}, form.aTemplate
         border: 0
         margin-left: auto
         margin-right: auto
         legend
+            *margin-left: -8px 
             color: $color_triad2
             font-weight: bold
         label
@@ -121,14 +130,28 @@
             +single-box-shadow($color_light)
             @include templateButton($color,#ffffff)
             @include single-text-shadow(#666666, 0px, 0px, 2px)
+    //Nav Menu
+    nav.#{$table}, nav.aTemplate
+        font-size: 120%
+        border: 0
+        background-color: $color
+        @include background-image(linear-gradient(bottom, $color 1%, $color_light 20%, $color 60%))
+        color: #ffffff
+        overflow: hidden
+        text-align: center
+        @include round(10px, normal)
+        @include single-text-shadow(#666666, 0px, 0px, 2px)
+        a
+            color: #ffffff
+            &:link
+                color: #ffffff
+            &:visited
+                color: #ffffff
+            &:hover, &:focus
+                color: #ffffff
+            &:active
+                color: #ffffff
 
-    // headings           
-    @for $i from 1 through 6
-        h#{$i}.#{$table}, h#{$i}.aTemplate
-            font-size: 100%+100*(1/$i)*$fontPadding
-            border-left: 5px $color solid
-            padding-left: 15px
-            line-height: 0.8
 
 
 
@@ -141,13 +164,12 @@
     $color_triad1: scale-saturation(adjust_hue($color, 30), -60)
     $color_triad2: scale-saturation(adjust_hue($color, -30), -60)
     $radius: 2px
-    // all
+    //All
     .#{$table}, .aTemplate
-        margin-bottom: 10px
         font-size: 100%
         color: $color_saturation
         font-family: $fontFamily
-        em
+        strong
             font-weight: normal
             font-style: normal
             color: $color_complement
@@ -161,12 +183,17 @@
                 color: $color_saturation
             &:visited
                 color: $color_saturation
-            &:hover
+            &:hover, &:focus
                 color: $color_triad1
             &:active
                 color: $color_triad1
-    // page
-    div.#{$table}, div.aTemplate
+        //Headings
+        @for $i from 1 through 6
+            h#{$i}.#{$table}, h#{$i}.aTemplate
+                font-size: 100%+100*(1/$i)*$fontPadding
+                border-bottom: 1px #cccccc solid
+    //Page
+    ul.#{$table}, ul.aTemplate
         display: inline
         margin: 2px
         color: $color_saturation
@@ -178,6 +205,7 @@
             padding: 1px 6px 1px 6px
             +border-radius($radius, $radius)
             @include single-transition(all, 0.5s, ease, 0)
+            &:link
             &:visited
                 color: $color_saturation
             &:hover, &:focus
@@ -190,7 +218,7 @@
             text-decoration: none
             padding: 5px 10px 5px 10px
             display: inline-block
-    // table
+    //Table
     table.#{$table}, table.aTemplate
         border-collapse: collapse
         word-break: break-all
@@ -207,11 +235,11 @@
             &:hover
                 background: #fafafa
         td, th
-            // all td
+            //All td
             padding: 10px
             border-bottom: 1px #eeeeee solid
         thead td, thead th
-            // table top head
+            //Table top head
             font-size: 120%
             border: 0
             @include background-image(linear-gradient(bottom,  $color_light, $color))
@@ -221,19 +249,20 @@
             text-align: center
             @include single-text-shadow(#666666, 0px, 0px, 2px)
         th
-            // table side head
+            //Table side head
             font-size: 120%
             border: 1px #eeeeee solid
             background-color: #eeeeee
             color: $color_saturation
             overflow: hidden
             text-align: center
-    // form
-    fieldset.#{$table}, fieldset.aTemplate
+    //Form
+    fieldset.#{$table}, fieldset.aTemplate, form.#{$table}, form.aTemplate
         border: 0
         margin-left: auto
         margin-right: auto
         legend
+            *margin-left: -8px 
             color: $color_triad2
             font-weight: bold
         label
@@ -254,12 +283,564 @@
             +single-box-shadow($color_light)
             @include templateButton($color_light,#ffffff)
             @include single-text-shadow(#666666, 0px, 0px, 2px)
+    //Nav Menu
+    nav.#{$table}, nav.aTemplate
+        font-size: 120%
+        border: 0
+        background-color: $color
+        color: #ffffff
+        overflow: hidden
+        text-align: center
+        @include round(10px, normal)
+        background-color: $color
+        @include background-image(linear-gradient(bottom,  $color_light, $color))
+        @include single-text-shadow(#666666, 0px, 0px, 2px)
+        a
+            color: #ffffff
+            &:link
+                color: #ffffff
+            &:visited
+                color: #ffffff
+            &:hover, &:focus
+                color: #ffffff
+            &:active
+                color: #ffffff
 
-    // headings
-    @for $i from 1 through 6
-        h#{$i}.#{$table}, h#{$i}.aTemplate
-            font-size: 100%+100*(1/$i)*$fontPadding
-            border-bottom: 1px #cccccc solid
+
+@mixin aTemplateBid($table,$color)
+    $color_complement: scale-saturation(adjust_hue($color, 160), -50)
+    $color_saturation: darken(scale-saturation($color, -80), 20%)
+    $color_light: scale-saturation(lighten($color, 20%), -50)
+    $color_lighter: lighten($color_light,20%)
+    $color_triad1: scale-saturation(adjust_hue($color, 30), -5)
+    $color_triad2: scale-saturation(adjust_hue($color, -30), -60)
+    $radius: 2px
+    //All
+    .#{$table}, .aTemplate
+        font-size: 100%
+        color: #333333
+        font-family: $fontFamily
+        strong
+            font-weight: normal
+            font-style: normal
+            color: $color_complement
+            font-weight: bold
+        cite
+            font-weight: normal
+            font-style: normal
+            color: #aaaaaa
+        a
+            color: $color_saturation
+            &:link
+                color: $color_saturation
+            &:visited
+                color: $color_saturation
+            &:hover, &:focus
+                color: $color
+            &:active
+                color: $color
+        //Headings
+        @for $i from 1 through 6
+            h#{$i}
+                font-size: 100%+80*(1/$i)*$fontPadding
+                border: 0
+                font-size: 100%
+                color: $color
+                font-weight: bold
+                width: 100%
+                border-bottom: 2px $color solid
+                text-align: center
+                letter-spacing: 2px
+        //Page
+    ul.#{$table}, ul.aTemplate
+        display: inline
+        margin: 2px
+        color: #888888
+        a
+            display: inline-block
+            text-decoration: none
+            line-height: 1.2
+            padding: 1px 6px 1px 6px
+            +border-radius($radius, $radius)
+            @include single-transition(all, 0.5s, ease, 0)
+            &:link
+                color: #888888
+            &:visited
+                color: #888888
+            &:hover, &:focus
+                color: #888888
+            &:active
+                color: #888888
+        span 
+            color: $color_saturation
+            font-weight: bold
+            text-decoration: none
+            padding: 5px 10px 5px 10px
+            display: inline-block
+    //Table
+    table.#{$table}, table.aTemplate
+        border-collapse: collapse
+        word-break: break-all
+        width: 100%
+        margin: 0 auto
+        border 0
+        td
+            border: 1px #dddddd solid
+        tr:nth-child(odd)
+            background: #fefefe
+        tr
+            background: #ffffff
+            @include single-transition(all, 0.5s, ease, 0)
+            &:hover
+                background: #fcfcfc
+        td, th
+            //All td
+            padding: 10px
+            border-bottom: 1px #dddddd solid
+        thead td, thead th
+            //Table top head
+            font-size: 120%
+            border: 0
+            border-top: 1px #C7C7C7 solid
+            border-bottom: 1px #C7C7C7 solid
+            background-color: #ffffff
+            color: #333333
+            overflow: hidden
+            text-align: center
+        th
+            //Table side head
+            font-size: 120%
+            border-left: 1px #C7C7C7 solid
+            border-right: 1px #C7C7C7 solid
+            background-color: #efefef
+            color: #333333
+            overflow: hidden
+            text-align: center
+    //Form
+    fieldset.#{$table}, fieldset.aTemplate, form.#{$table}, form.aTemplate
+        border: 1px #cccccc solid
+        margin-left: auto
+        margin-right: auto
+        legend
+            *margin-left: -8px    
+            border: 1px darken($color, 10%) solid
+            border-bottom: 2px darken($color, 5%) solid
+            width: 100%
+            color: #ffffff
+            font-weight: bold
+            text-align: center
+            padding-top: 2px
+            padding-bottom: 2px
+            letter-spacing: 2px       
+            @include round-top-left(10px, normal)
+            @include round-top-right(10px, normal)
+            @include single-text-shadow($color, 0px, 0px, 5px)
+            @include box-shadow(#ffffff 0px 1px 1px inset)
+            background-color: $color
+            @include background-image(linear-gradient(top, $color 0%, darken($color, 2%) 10%, lighten($color, 2%) 11%, $color 100%))
+        label
+        table.#{$table}, table.aTemplate
+            text-align: left
+            input, textarea, select
+                margin: 0px
+        input, textarea, select
+            +border-radius($radius, $radius)
+            vertical-align: middle
+            margin-right: 10px
+            border: 1px #cccccc solid
+            color: #333333
+            padding: 5px
+            &:hover, &:focus
+                background: #ffffff
+        input[type=submit], input[type=button], button
+            +single-box-shadow($color_light)
+            @include templateButton_2($color,#ffffff)
+            @include single-text-shadow(#666666, 0px, 0px, 3px)
  
+    //Nav Menu
+    nav.#{$table}, nav.aTemplate
+        color: #ffffff
+        font-weight: bold
+        border: 1px darken($color, 10%) solid
+        border-bottom: 3px darken($color, 10%) solid
+        margin: 0
+        padding-top: 5px
+        padding-bottom: 5px
+        @include box-shadow(#ffffff 0px 1px 1px inset)
+        @include round-top-left(10px, normal)
+        @include round-top-right(10px, normal)
+        background-color: $color
+        @include background-image(linear-gradient(top, $color 0%, darken($color, 2%) 10%, lighten($color, 2%) 11%, $color 100%))
+        @include single-text-shadow(darken($color, 30%), 0px, 0px, 5px)
+        a
+            color: #ffffff
+            &:link
+                color: #ffffff
+            &:visited
+                color: #ffffff
+            &:hover, &:focus
+                color: #ffffff
+            &:active
+                color: #ffffff
+        li
+            border-left-color: darken($color, 5%)
+            border-top-color: darken($color, 5%)
+
+@mixin aTemplateShopping($table,$color)
+    $color_complement: scale-saturation(adjust_hue($color, 160), -50)
+    $color_saturation: scale-saturation($color, -80)
+    $color_light: scale-saturation(lighten($color,20%), -50)
+    $color_lighter: lighten($color_light,20%)
+    $color_triad1: scale-saturation(adjust_hue($color, 30), -5)
+    $color_triad2: scale-saturation(adjust_hue($color, -30), -60)
+    $color_saturation2: darken(scale-saturation($color, -50), 20%)
+    $radius: 2px
+    //All
+    .#{$table}, .aTemplate
+        font-size: 100%
+        color: #333333
+        font-family: $fontFamily
+        strong
+            font-weight: normal
+            font-style: normal
+            color: $color_complement
+            font-weight: bold
+            border-left: 5px $color_complement solid
+            padding-left: 5px
+        cite
+            font-weight: normal
+            font-style: normal
+            color: #aaaaaa
+        a
+            color: $color_saturation
+            &:link
+                color: $color_saturation
+            &:visited
+                color: $color_saturation
+            &:hover, &:focus
+                color: $color
+            &:active
+                color: $color
+        //Headings
+        @for $i from 1 through 6
+            h#{$i}
+                font-size: 100%+(6-$i)*10
+                border: 1px #dddddd solid
+                border-bottom: 2px darken(#dddddd, 5%) solid
+                width: 100%
+                color: #333333
+                font-weight: bold
+                text-align: center
+                padding-top: 2px
+                padding-bottom: 2px
+                @include round-top-left(10px, normal)
+                @include round-top-right(10px, normal)
+                @include box-shadow(#ffffff 0px 1px 1px inset)
+                background-color: lighten(#dddddd, 10%)
+                @include background-image(linear-gradient(top, lighten(#dddddd, 10%) 0%, #dddddd 50%, darken(#dddddd, 5%) 51%, lighten(#dddddd, 10%) 100%))
+        //Page
+    ul.#{$table}, ul.aTemplate
+        display: inline
+        margin: 2px
+        color: #888888
+        a
+            display: inline-block
+            text-decoration: none
+            line-height: 1.2
+            padding: 1px 6px 1px 6px
+            +border-radius($radius, $radius)
+            @include single-transition(all, 0.5s, ease, 0)
+            &:link
+                color: #888888
+            &:visited
+                color: #888888
+            &:hover, &:focus
+                color: #888888
+            &:active
+                color: #888888
+        span 
+            color: $color_saturation
+            font-weight: bold
+            text-decoration: none
+            padding: 5px 10px 5px 10px
+            display: inline-block
+    //Table
+    table.#{$table}, table.aTemplate
+        border-collapse: collapse
+        word-break: break-all
+        width: 100%
+        margin: 0 auto
+        border 0
+        td
+            border: 1px #dddddd solid
+        tr:nth-child(odd)
+            background: #fefefe
+        tr
+            background: #ffffff
+            @include single-transition(all, 0.5s, ease, 0)
+            &:hover
+                background: #fcfcfc
+        td, th
+            //All td
+            padding: 10px
+            border-bottom: 1px #dddddd solid
+        thead td, thead th
+            //Table top head
+            font-size: 120%
+            border: 0
+            border-top: 1px #C7C7C7 solid
+            border-bottom: 1px #C7C7C7 solid
+            background-color: #ffffff
+            color: #333333
+            overflow: hidden
+            text-align: center
+        th
+            //Table side head
+            font-size: 120%
+            border-left: 1px #C7C7C7 solid
+            border-right: 1px #C7C7C7 solid
+            background-color: #efefef
+            color: #333333
+            overflow: hidden
+            text-align: center
+    //Form
+    fieldset.#{$table}, fieldset.aTemplate, form.#{$table}, form.aTemplate
+        margin-left: auto
+        margin-right: auto
+        legend
+            border: 0
+            font-size: 100%
+            color: $color
+            font-weight: bold
+            width: 100%
+            border-bottom: 2px $color solid
+            text-align: center
+            letter-spacing: 2px
+            *margin-left: -8px 
+        label
+        table.#{$table}, table.aTemplate
+            text-align: left
+            input, textarea, select
+                margin: 0px
+        input, textarea, select
+            +border-radius($radius, $radius)
+            vertical-align: middle
+            margin-right: 10px
+            border: 1px #cccccc solid
+            color: #333333
+            padding: 5px
+            &:hover, &:focus
+                background: #ffffff
+        input[type=submit], input[type=button], button
+            +single-box-shadow($color_light)
+            @include templateButton_2($color,#ffffff)
+            @include single-text-shadow(#666666, 0px, 0px, 3px)
+
+    //Nav Menu
+    nav.#{$table}, nav.aTemplate
+        color: #ffffff
+        font-weight: bold
+        border: 2px #ffffff solid
+        background-color: $color
+        padding-top: 5px
+        padding-bottom: 5px 
+        @include round(10px, normal)
+        @include background-image(linear-gradient(bottom, darken($color, 10%) 0%, darken($color, 5%) 10%, darken($color, 3%) 50%, $color 100%))
+        @include single-text-shadow(darken($color, 30%), 0px, 0px, 5px)
+        @include box-shadow(lighten($color, 5%) 0px 3px 1px inset,  lighten($color, 30%) 0px 0px 10px)
+        a
+            color: #ffffff
+            &:link
+                color: #ffffff
+            &:visited
+                color: #ffffff
+            &:hover, &:focus
+                color: #ffffff
+            &:active
+                color: #ffffff
+        li
+            border-left-color: darken($color, 5%)
+            border-top-color: darken($color, 5%)
 
 
+@mixin aTemplateMarket($table,$color)
+    $color_complement: scale-saturation(adjust_hue($color, 160), -50)
+    $color_saturation: scale-saturation($color, -80)
+    $color_light: scale-saturation(lighten($color,20%), -50)
+    $color_lighter: lighten($color_light,20%)
+    $color_triad1: scale-saturation(adjust_hue($color, 30), -5)
+    $color_triad2: scale-saturation(adjust_hue($color, -30), -60)
+    $color_saturation2: darken(scale-saturation($color, -50), 20%)
+    $radius: 2px
+    //All
+    .#{$table}, .aTemplate
+        font-size: 100%
+        color: #333333
+        font-family: $fontFamily
+        strong
+            font-weight: normal
+            font-style: normal
+            color: $color_complement
+            font-weight: bold
+        cite
+            font-weight: normal
+            font-style: normal
+            color: #aaaaaa
+        a
+            color: $color_saturation
+            &:link
+                color: $color_saturation
+            &:visited
+                color: $color_saturation
+            &:hover, &:focus
+                color: $color
+            &:active
+                color: $color
+        //Headings
+        @for $i from 1 through 6
+            h#{$i}
+                font-size: 100%+80*(1/$i)*$fontPadding
+                border: 0
+                font-size: 100%
+                color: $color
+                font-weight: bold
+                width: 100%
+                border-bottom: 2px $color solid
+                border-left: 5px $color solid
+                padding-left: 5px
+
+                *border-left: 0
+                *padding-left: 0
+                box-sizing: border-box
+                -webkit-box-sizing: border-box
+                -moz-box-sizing: border-box
+                text-align: left
+        //Page
+    ul.#{$table}, ul.aTemplate
+        display: inline
+        margin: 2px
+        color: #888888
+        a
+            display: inline-block
+            text-decoration: none
+            line-height: 1.2
+            padding: 1px 6px 1px 6px
+            +border-radius($radius, $radius)
+            @include single-transition(all, 0.5s, ease, 0)
+            &:link
+                color: #888888
+            &:visited
+                color: #888888
+            &:hover, &:focus
+                color: #888888
+            &:active
+                color: #888888
+        span 
+            color: $color_saturation
+            font-weight: bold
+            text-decoration: none
+            padding: 5px 10px 5px 10px
+            display: inline-block
+    //Table
+    table.#{$table}, table.aTemplate
+        border-collapse: collapse
+        word-break: break-all
+        width: 100%
+        margin: 0 auto
+        border 0
+        td
+            border: 1px #dddddd solid
+        tr:nth-child(odd)
+            background: #fefefe
+        tr
+            background: #ffffff
+            @include single-transition(all, 0.5s, ease, 0)
+            &:hover
+                background: #fcfcfc
+        td, th
+            //All td
+            padding: 10px
+            border-bottom: 1px #dddddd solid
+        thead td, thead th
+            //Table top head
+            font-size: 120%
+            border: 0
+            border-top: 1px #C7C7C7 solid
+            border-bottom: 1px #C7C7C7 solid
+            background-color: #ffffff
+            color: #333333
+            overflow: hidden
+            text-align: center
+        th
+            //Table side head
+            font-size: 120%
+            border-left: 1px #C7C7C7 solid
+            border-right: 1px #C7C7C7 solid
+            background-color: #efefef
+            color: #333333
+            overflow: hidden
+            text-align: center
+    //Form
+    fieldset.#{$table}, fieldset.aTemplate, form.#{$table}, form.aTemplate
+        margin-left: auto
+        margin-right: auto
+        border: 1px #cccccc solid
+        legend
+            *margin-left: -8px 
+            border: 1px darken($color, 10%) solid
+            border-bottom: 2px darken($color, 5%) solid
+            width: 100%
+            color: #ffffff
+            font-weight: bold
+            text-align: center
+            padding-top: 2px
+            padding-bottom: 2px
+            letter-spacing: 2px
+            @include single-text-shadow($color, 0px, 0px, 5px)
+            @include box-shadow(#ffffff 0px 1px 1px inset)
+            background-color: $color
+            @include background-image(linear-gradient(top, $color 0%, darken($color, 2%) 10%, lighten($color, 2%) 11%, $color 100%))
+        label
+        table.#{$table}, table.aTemplate
+            text-align: left
+            input, textarea, select
+                margin: 0px
+        input, textarea, select
+            +border-radius($radius, $radius)
+            vertical-align: middle
+            margin-right: 10px
+            border: 1px #cccccc solid
+            color: #333333
+            padding: 5px
+            &:hover, &:focus
+                background: #ffffff
+        input[type=submit], input[type=button], button
+            +single-box-shadow($color_light)
+            @include templateButton_2($color,#ffffff)
+            @include single-text-shadow(#666666, 0px, 0px, 3px)
+
+    //Nav Menu
+    nav.#{$table}, nav.aTemplate
+        color: #ffffff
+        font-weight: bold
+        border: 1px darken($color, 10%) solid
+        background-color: $color
+        padding-top: 5px
+        padding-bottom: 5px 
+        background-color: $color
+        @include background-image(linear-gradient(top, darken($color, 20%) 0%, darken($color, 5%) 10%, darken($color, 3%) 50%, $color 100%))
+        @include single-text-shadow(darken($color, 30%), 0px, 0px, 5px)
+        @include box-shadow(lighten($color, 5%) 0px 3px 1px inset,  lighten($color, 30%) 0px 0px 10px)
+        a
+            color: #ffffff
+            &:link
+                color: #ffffff
+            &:visited
+                color: #ffffff
+            &:hover, &:focus
+                color: #ffffff
+            &:active
+                color: #ffffff
+        li
+            border-left-color: darken($color, 5%)
+            border-top-color: darken($color, 5%)

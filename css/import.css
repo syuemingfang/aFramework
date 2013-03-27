@@ -1,5 +1,5 @@
-@charset "utf-8";
-/* CSS Document */
 @import url(../css/demo.css); 
-@import url(http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css); 
+@import url(http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css);
 @import url(../css/aStyle-0.2.css); 
+@import url(../css/aStyleSetup.css);
+@import url(../css/aResponsive-0.2.css); 
