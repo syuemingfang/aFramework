@@ -1,10 +1,12 @@
 @import setup.sass
 @import aResponsiveSetup.sass
 
+//Horizontal Line(Desktop)
 .xDesktop
 	@include x(base,"","")
 .yDesktop
 	@include y(base,"","")
+
 //Text(Tablet)
 .textRightTablet
 .textLeftTablet
@@ -29,16 +31,13 @@
 @media (min-width: $tabletWrapWidth) and (max-width: $wrapWidth)
 	.showPhone
 		display: none !important
-	.showTablet
-		
+	.showTablet		
 	.showDesktop
 		display: none !important
-	.hidePhone
-		
+	.hidePhone		
 	.hideTablet
 		display: none !important
-	.hideDesktop
-		
+	.hideDesktop		
 	.smallTablet
 		font-size: 80% !important
 	.largeTablet
@@ -59,10 +58,8 @@
 		display: none !important
 	.hidePhone
 		display: none !important
-	.hideTablet
-		
-	.hideDesktop
-		
+	.hideTablet		
+	.hideDesktop		
 	.smallPhone
 		font-size: 80% !important
 	.largePhone

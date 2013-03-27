@@ -71,17 +71,17 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 //Horizontal Line
 hr
 	width: 100%
-	@include hr(base,$isMutedColor)
+	@include hr(base,'')
 	&.isMuted
-		@include hr(base,$isMutedColor)
+		@include hr(base,'')
 	&.isWarning
-		@include hr(base,$isWarningColor)
+		@include hr(base,'')
 	&.isDanger
-		@include hr(base,$isDangerColor)
+		@include hr(base,'')
 	&.isInfo
-		@include hr(base,$isInfoColor)
+		@include hr(base,'')
 	&.isSuccess
-		@include hr(base,$isSuccessColor)
+		@include hr(base,'')
 dl.x
 	dt	
 		float: left
