@@ -20,6 +20,7 @@ body
 			color: $isInfoColor
 cite
 	color: lighten($isGrayColor, 20%)
+
 h1, h2, h3, h4, h5, h6
 	&.isMuted
 		border-left-color: $isMutedColor
@@ -81,11 +82,14 @@ ul.y, ol.y
 ul.ul, ol.ol
 	&.ul
 		padding-left: $padding*4
+		*padding-left: ($padding - 2)*4 //IE7
 	&.ol
 		padding-left: $padding*4
+		*padding-left: ($padding - 2)*4 //IE7
 	&.x
 		li
 			padding-right: $padding*2
+			*padding-right: ($padding - 2)*2 //IE7
 	&.y
 		li
 
@@ -111,7 +115,7 @@ ul.ul, ol.ol
 				@include round-top-right($radius*4,important)
 				@include round-bottom-right($radius*4,important)
 //Padding
-div.padding
+.padding
 	padding: $padding*2
 	*padding: ($padding - 2)*2 //IE7
 span.padding, label.padding
@@ -153,7 +157,6 @@ a.btn, a.isMuted, a.isWarning, a.isDanger, a.isInfo, a.isSuccess,a.isMutedRay,a.
 	&:hover, &:focus
 
 a, input, button
-
 	&.btn,&.isMuted,&.isWarning, &.isDanger, &.isInfo, &.isSuccess,&.isMutedRay,&.isWarningRay, &.isDangerRay, &.isInfoRay, &.isSuccessRay, &[type="button"], &[type="submit"], &[type="reset"], &[type="file"]::-webkit-file-upload-button
 		@include single-text-shadow(#ffffff, 0px, 0px, 2px)
 		@include button(setup,lighten($isGrayColor, 100%),$isGrayColor)
@@ -235,11 +238,10 @@ em, mark
 		border-color: $isSuccessColor
 		color: $isSuccessColor
 
-
 //Code
 code
-	@include border-radius(5px)
 	padding: $padding - 2 ($padding - 2)*2
+	@include border-radius(5px)
 	@include single-text-shadow(0, -1px, 0, $isGrayColor)
 
 //Text
@@ -264,7 +266,6 @@ p, strong, span, small
 		color: $isInfoColor
 	&.isSuccess
 		color: $isSuccessColor
-
 
 //Blockquote
 blockquote
@@ -304,11 +305,11 @@ blockquote
 		background-color: lighten(scale-saturation($isDangerColor, -20), 0%)
 		border-color: darken($isDangerColor, 15%)
 	&.isInfo
-		color:  lighten($isInfoColor, 50%)
+		color: lighten($isInfoColor, 50%)
 		background-color: lighten(scale-saturation($isInfoColor, -20), 0%)
 		border-color: darken($isInfoColor, 15%)
 	&.isSuccess
-		color:  lighten($isSuccessColor, 50%)
+		color: lighten($isSuccessColor, 50%)
 		background-color: lighten(scale-saturation($isSuccessColor, -20), 0%)
 		border-color: darken($isSuccessColor, 15%)
 
@@ -349,7 +350,6 @@ p, h1, h2, h3, h4, h5, h6
 		line-height: $fontPadding/2 !important
 	&.wide
 		line-height: $fontPadding*2	!important
-
 
 //Shadow
 .shadow
@@ -407,27 +407,44 @@ table.striped
 			background-color: lighten($isGrayColor, 77%)
 
 //Hover
-.hoverOpacity
+.hoverOpacity, [data-hover="opacity"]
 	@include opacity(0.9)
 	&:hover
 		@include opacity(1)	
+.hoverMutedRay, [data-hover="mutedRay"]
+	&:hover
+		background-color: lighten($isMutedColor, 50%)
+.hoverWarningRay, [data-hover="warningRay"]
+	&:hover
+		background-color: lighten($isWarningColor, 50%)
+.hoverDangerRay, [data-hover="dangerRay"]
+	&:hover
+		background-color: lighten($isDangerColor, 50%)
+.hoverInfoRay, [data-hover="infoRay"]
+	&:hover
+		background-color: lighten($isInfoColor, 50%)
+.hoverSuccessRay, [data-hover="successRay"]
+	&:hover
+		background-color: lighten($isSuccessColor, 50%)
+		
 ul, ol
-	&.hoverOpacity
+	&.hoverOpacity, &[data-hover="opacity"]
 		@include opacity(0.9)
 		>li:hover
 			@include opacity(1)			
-	&.hoverMutedRay
+	&.hoverMutedRay, &[data-hover="mutedRay"]
 		>li:hover
 			background-color: lighten($isMutedColor, 50%)
-	&.hoverWarningRay
+	&.hoverWarningRay, &[data-hover="warningRay"]
 		>li:hover
 			background-color: lighten($isWarningColor, 50%)
-	&.hoverDangerRay
+	&.hoverDangerRay, &[data-hover="dangerRay"]
 		>li:hover
 			background-color: lighten($isDangerColor, 50%)
-	&.hoverInfoRay
+	&.hoverInfoRay, &[data-hover="infoRay"]
 		>li:hover
 			background-color: lighten($isInfoColor, 50%)
-	&.hoverSuccessRay
+	&.hoverSuccessRay, &[data-hover="successRay"]
 		>li:hover
 			background-color: lighten($isSuccessColor, 50%)
+

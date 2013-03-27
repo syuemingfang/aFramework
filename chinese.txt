@@ -19,6 +19,7 @@
 .all_forLanguageMenu_2│CSS風格
 .all_forLanguageMenu_3│jQuery套件
 .all_forLanguageMenu_4│基本版型
+.all_forLanguageMenu_5│首頁
 .aFontResize_forLanguageText│一個 字型大小
 .aFontResize_forLanguageText2│變換網頁字體大小。
 .aBanner_forLanguageText│一個 動畫輪播
