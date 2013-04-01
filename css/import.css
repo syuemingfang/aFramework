@@ -1,5 +1,5 @@
-@import url(../css/demo.css); 
+@import url(demo.css); 
 @import url(http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css);
-@import url(../css/aStyle.css?v=0.2); 
-@import url(../css/aStyleSetup.css);
-@import url(../css/aResponsive.css?v=0.2); 
+@import url(aStyle.css?v=0.2); 
+@import url(aStyleSetup.css);
+@import url(aResponsive.css?v=0.2); 
